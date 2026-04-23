@@ -305,7 +305,40 @@ if (!isWorkRelated) {
               >
                 Try one of these:
               </p>
+<div style={{ marginTop: "10px", display: "flex", gap: "10px" }}>
+  <button
+    onClick={handleGenerate}
+    disabled={loading || !input.trim()}
+    style={{
+      padding: "14px 22px",
+      backgroundColor: loading || !input.trim() ? "#7aa9a4" : "#134e4a",
+      color: "#ffffff",
+      border: "none",
+      borderRadius: "10px",
+      cursor: loading || !input.trim() ? "not-allowed" : "pointer",
+      fontSize: "16px",
+      fontWeight: 700,
+    }}
+  >
+    {loading ? "Working..." : "Coach Me Through It"}
+  </button>
 
+  <button
+    onClick={handleReset}
+    style={{
+      padding: "14px 22px",
+      backgroundColor: "#ffffff",
+      color: "#134e4a",
+      border: "1px solid #94a3b8",
+      borderRadius: "10px",
+      cursor: "pointer",
+      fontSize: "16px",
+      fontWeight: 700,
+    }}
+  >
+    Ask Another Question
+  </button>
+</div>
               <div style={{ display: "grid", gap: "12px" }}>
                 {examples.map((example, index) => (
                   <button
@@ -356,27 +389,8 @@ if (!isWorkRelated) {
                   boxShadow: "0 10px 20px rgba(15,118,110,0.22)",
                 }}
               >
-                {loading ? "Working..." : "Coach Me Through It"}
-              </button>
-
-              <button
-                onClick={handleReset}
-                style={{
-                  padding: "15px 24px",
-                  backgroundColor: "#ffffff",
-                  color: "#134e4a",
-                  border: "1px solid #a4b8b5",
-                  borderRadius: "14px",
-                  cursor: "pointer",
-                  fontSize: "16px",
-                  fontWeight: 800,
-                }}
-              >
-                Ask Another Question
-              </button>
-            </div>
-
-            {output && (
+                
+               {output && (
               <div
                 style={{
                   marginTop: "26px",
