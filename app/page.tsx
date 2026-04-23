@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -31,7 +31,7 @@ export default function Home() {
 
       const data = await res.json();
       setOutput(data.result || "Something went wrong. Please try again.");
-    } catch (error) {
+    } catch {
       setOutput("Something went wrong while generating guidance. Please try again.");
     } finally {
       setLoading(false);
@@ -69,42 +69,32 @@ export default function Home() {
           borderTop: "8px solid #0f766e",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "16px",
-            marginBottom: "18px",
-          }}
-        >
-          <img
+        <div style={{ textAlign: "center", marginBottom: "18px" }}>
+          <Image
             src="/logo.png"
             alt="Work Like a Team logo"
-            style={{
-              width: "72px",
-              height: "72px",
-              objectFit: "contain",
-              borderRadius: "12px",
-              backgroundColor: "#ffffff",
-            }}
+            width={110}
+            height={110}
+            style={{ objectFit: "contain" }}
           />
-          <div>
-            <div style={{ textAlign: "center", marginBottom: "20px" }}>
-  <Image src="/logo.png" alt="logo" width={120} height={120} />
-  <h1 style={{ margin: 0, fontSize: "30px", color: "#134e4a" }}>
-    Work Like a Team Leadership Assistant
-  </h1>
-</div>
-            <p
-              style={{
-                margin: "6px 0 0 0",
-                color: "#3f5f5c",
-                fontSize: "16px",
-              }}
-            >
-              Practical guidance for real workplace situations.
-            </p>
-          </div>
+          <h1
+            style={{
+              margin: "12px 0 0 0",
+              fontSize: "30px",
+              color: "#134e4a",
+            }}
+          >
+            Work Like a Team Leadership Assistant
+          </h1>
+          <p
+            style={{
+              margin: "10px 0 0 0",
+              color: "#3f5f5c",
+              fontSize: "16px",
+            }}
+          >
+            Practical guidance for real workplace situations.
+          </p>
         </div>
 
         <div
@@ -118,15 +108,15 @@ export default function Home() {
             lineHeight: "1.5",
           }}
         >
-          Describe a real employee or team issue. This tool helps managers think
-          through what to say, why it matters, what to watch for, and what to do next.
+          Describe a real employee or team issue. This tool helps managers think through
+          what to say, why it matters, what to watch for, and what to do next.
         </div>
 
         <label
           htmlFor="situation"
           style={{
             display: "block",
-            fontWeight: "700",
+            fontWeight: 700,
             marginBottom: "10px",
             color: "#134e4a",
           }}
@@ -157,7 +147,7 @@ export default function Home() {
           <p
             style={{
               margin: "0 0 10px 0",
-              fontWeight: "700",
+              fontWeight: 700,
               color: "#134e4a",
             }}
           >
@@ -205,7 +195,7 @@ export default function Home() {
               borderRadius: "10px",
               cursor: loading || !input.trim() ? "not-allowed" : "pointer",
               fontSize: "16px",
-              fontWeight: "700",
+              fontWeight: 700,
             }}
           >
             {loading ? "Working..." : "Get Guidance"}
@@ -221,7 +211,7 @@ export default function Home() {
               borderRadius: "10px",
               cursor: "pointer",
               fontSize: "16px",
-              fontWeight: "700",
+              fontWeight: 700,
             }}
           >
             Ask Another Question
