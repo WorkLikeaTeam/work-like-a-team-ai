@@ -68,7 +68,36 @@ export default function Home() {
       );
       return;
     }
+const lower = input.toLowerCase();
 
+const workWords = [
+  "employee",
+  "team",
+  "manager",
+  "coworker",
+  "co worker",
+  "boss",
+  "work",
+  "job",
+  "staff",
+  "performance",
+  "late",
+  "attendance",
+  "conflict",
+  "feedback",
+  "meeting",
+  "schedule",
+  "shift"
+];
+
+const isWorkRelated = workWords.some(word => lower.includes(word));
+
+if (!isWorkRelated) {
+  setOutput(
+    "I’m built for workplace situations like employee issues, team challenges, and leadership problems.\n\nTell me what’s happening at work and I’ll coach you through it."
+  );
+  return;
+}
     setLoading(true);
     setOutput("");
 
