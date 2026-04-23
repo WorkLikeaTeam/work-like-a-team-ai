@@ -19,6 +19,11 @@ export default function Home() {
     setOutput("");
   };
 
+  const useExample = (text: string) => {
+    setInput(text);
+    setOutput("");
+  };
+
   const handleGenerate = async () => {
     const trimmed = input.trim().toLowerCase();
 
@@ -68,36 +73,36 @@ export default function Home() {
       );
       return;
     }
-const lower = input.toLowerCase();
 
-const workWords = [
-  "employee",
-  "team",
-  "manager",
-  "coworker",
-  "co worker",
-  "boss",
-  "work",
-  "job",
-  "staff",
-  "performance",
-  "late",
-  "attendance",
-  "conflict",
-  "feedback",
-  "meeting",
-  "schedule",
-  "shift"
-];
+    const workWords = [
+      "employee",
+      "team",
+      "manager",
+      "coworker",
+      "co worker",
+      "boss",
+      "work",
+      "job",
+      "staff",
+      "performance",
+      "late",
+      "attendance",
+      "conflict",
+      "feedback",
+      "meeting",
+      "schedule",
+      "shift",
+    ];
 
-const isWorkRelated = workWords.some(word => lower.includes(word));
+    const isWorkRelated = workWords.some((word) => trimmed.includes(word));
 
-if (!isWorkRelated) {
-  setOutput(
-    "I’m built for workplace situations like employee issues, team challenges, and leadership problems.\n\nTell me what’s happening at work and I’ll coach you through it."
-  );
-  return;
-}
+    if (!isWorkRelated) {
+      setOutput(
+        "I’m built for workplace situations like employee issues, team challenges, and leadership problems.\n\nTell me what’s happening at work and I’ll coach you through it."
+      );
+      return;
+    }
+
     setLoading(true);
     setOutput("");
 
@@ -117,11 +122,6 @@ if (!isWorkRelated) {
     } finally {
       setLoading(false);
     }
-  };
-
-  const useExample = (text: string) => {
-    setInput(text);
-    setOutput("");
   };
 
   return (
@@ -294,6 +294,52 @@ if (!isWorkRelated) {
               }}
             />
 
+            <div
+              style={{
+                marginTop: "12px",
+                display: "flex",
+                gap: "10px",
+                flexWrap: "wrap",
+              }}
+            >
+              <button
+                onClick={handleGenerate}
+                disabled={loading || !input.trim()}
+                style={{
+                  padding: "14px 22px",
+                  background:
+                    loading || !input.trim()
+                      ? "#7aa9a4"
+                      : "linear-gradient(135deg, #0f766e 0%, #155e75 100%)",
+                  color: "#ffffff",
+                  border: "none",
+                  borderRadius: "10px",
+                  cursor: loading || !input.trim() ? "not-allowed" : "pointer",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  boxShadow: "0 10px 20px rgba(15,118,110,0.22)",
+                }}
+              >
+                {loading ? "Working..." : "Coach Me Through It"}
+              </button>
+
+              <button
+                onClick={handleReset}
+                style={{
+                  padding: "14px 22px",
+                  backgroundColor: "#ffffff",
+                  color: "#134e4a",
+                  border: "1px solid #94a3b8",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                }}
+              >
+                Ask Another Question
+              </button>
+            </div>
+
             <div style={{ marginTop: "22px" }}>
               <p
                 style={{
@@ -305,40 +351,7 @@ if (!isWorkRelated) {
               >
                 Try one of these:
               </p>
-<div style={{ marginTop: "10px", display: "flex", gap: "10px" }}>
-  <button
-    onClick={handleGenerate}
-    disabled={loading || !input.trim()}
-    style={{
-      padding: "14px 22px",
-      backgroundColor: loading || !input.trim() ? "#7aa9a4" : "#134e4a",
-      color: "#ffffff",
-      border: "none",
-      borderRadius: "10px",
-      cursor: loading || !input.trim() ? "not-allowed" : "pointer",
-      fontSize: "16px",
-      fontWeight: 700,
-    }}
-  >
-    {loading ? "Working..." : "Coach Me Through It"}
-  </button>
 
-  <button
-    onClick={handleReset}
-    style={{
-      padding: "14px 22px",
-      backgroundColor: "#ffffff",
-      color: "#134e4a",
-      border: "1px solid #94a3b8",
-      borderRadius: "10px",
-      cursor: "pointer",
-      fontSize: "16px",
-      fontWeight: 700,
-    }}
-  >
-    Ask Another Question
-  </button>
-</div>
               <div style={{ display: "grid", gap: "12px" }}>
                 {examples.map((example, index) => (
                   <button
@@ -363,34 +376,7 @@ if (!isWorkRelated) {
               </div>
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                gap: "12px",
-                flexWrap: "wrap",
-                marginTop: "24px",
-              }}
-            >
-              <button
-                onClick={handleGenerate}
-                disabled={loading || !input.trim()}
-                style={{
-                  padding: "15px 24px",
-                  background:
-                    loading || !input.trim()
-                      ? "#7aa9a4"
-                      : "linear-gradient(135deg, #0f766e 0%, #155e75 100%)",
-                  color: "#ffffff",
-                  border: "none",
-                  borderRadius: "14px",
-                  cursor: loading || !input.trim() ? "not-allowed" : "pointer",
-                  fontSize: "16px",
-                  fontWeight: 800,
-                  boxShadow: "0 10px 20px rgba(15,118,110,0.22)",
-                }}
-              >
-                
-               {output && (
+            {output && (
               <div
                 style={{
                   marginTop: "26px",
@@ -542,4 +528,3 @@ if (!isWorkRelated) {
     </div>
   );
 }
-// x
