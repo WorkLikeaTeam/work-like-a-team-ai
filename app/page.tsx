@@ -75,24 +75,24 @@ export default function Home() {
     }
 
     const workWords = [
-      "employee",
-      "team",
-      "manager",
-      "coworker",
-      "co worker",
-      "boss",
-      "work",
-      "job",
-      "staff",
-      "performance",
-      "late",
-      "attendance",
-      "conflict",
-      "feedback",
-      "meeting",
-      "schedule",
-      "shift",
-    ];
+  "employee",
+  "team",
+  "manager",
+  "coworker",
+  "boss",
+  "work",
+  "job",
+  "staff",
+  "guy",
+  "person",
+  "worker",
+  "crew",
+  "people",
+  "break",
+  "leaving",
+  "late",
+  "schedule",
+];
 
     const isWorkRelated = workWords.some((word) => trimmed.includes(word));
 
