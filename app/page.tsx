@@ -110,6 +110,7 @@ export default function Home() {
       "i have a girl",
       "i have an employee",
       "i have someone",
+      "i have a person",
     ];
 
     const behaviorWords = [
@@ -147,6 +148,11 @@ export default function Home() {
       "customers",
       "stressed",
       "shutting down",
+      "gossip",
+      "drama",
+      "calling out",
+      "mistakes",
+      "undermining",
     ];
 
     const hasPerson = personWords.some((word) => normalized.includes(word));
@@ -192,45 +198,11 @@ export default function Home() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background:
-          "linear-gradient(180deg, #0f4c4c 0%, #165f5a 20%, #f3f7f6 20%, #f3f7f6 100%)",
-        padding: "32px 18px 50px",
-        fontFamily: "Arial, sans-serif",
-        color: "#163434",
-      }}
-    >
-      <div style={{ maxWidth: "980px", margin: "0 auto" }}>
-        <div
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
-            border: "1px solid rgba(255,255,255,0.12)",
-            borderRadius: "24px",
-            padding: "28px 24px",
-            color: "#ffffff",
-            marginBottom: "22px",
-            boxShadow: "0 14px 40px rgba(0,0,0,0.18)",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "18px",
-              flexWrap: "wrap",
-            }}
-          >
-            <div
-              style={{
-                backgroundColor: "rgba(255,255,255,0.12)",
-                borderRadius: "18px",
-                padding: "10px",
-                display: "inline-flex",
-              }}
-            >
+    <main className="page">
+      <div className="wrap">
+        <section className="hero">
+          <div className="heroInner">
+            <div className="logoBox">
               <Image
                 src="/logo.png"
                 alt="Work Like a Team logo"
@@ -240,108 +212,26 @@ export default function Home() {
               />
             </div>
 
-            <div style={{ flex: 1, minWidth: "260px" }}>
-              <div
-                style={{
-                  display: "inline-block",
-                  backgroundColor: "#d7fff4",
-                  color: "#0f4c4c",
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  padding: "6px 10px",
-                  borderRadius: "999px",
-                  marginBottom: "10px",
-                  letterSpacing: "0.3px",
-                }}
-              >
-                Work Like a Team
-              </div>
-
-              <h1
-                style={{
-                  margin: 0,
-                  fontSize: "36px",
-                  lineHeight: 1.1,
-                  fontWeight: 800,
-                }}
-              >
-                Leadership Assistant
-              </h1>
-
-              <p
-                style={{
-                  margin: "12px 0 0 0",
-                  fontSize: "20px",
-                  lineHeight: 1.35,
-                  color: "#d8f2ee",
-                  fontWeight: 600,
-                }}
-              >
-                Real help for messy leader moments.
-              </p>
+            <div className="heroText">
+              <div className="tag">Work Like a Team</div>
+              <h1>Leadership Assistant</h1>
+              <p>Real help for messy leader moments.</p>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div
-          style={{
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "22px",
-  alignItems: "flex-start",
-}}
-        >
-          <div
-            style={{
-              backgroundColor: "#ffffff",
-              borderRadius: "24px",
-              padding: "28px",
-              flex: "1 1 600px",
-              minWidth: "300px",
-              boxShadow: "0 12px 30px rgba(18, 54, 54, 0.08)",
-              border: "1px solid #d7ebe8",
-            }}
-          >
-            <div
-              style={{
-                background:
-                  "linear-gradient(135deg, #ecfffb 0%, #e8f7f3 100%)",
-                border: "1px solid #b7e8dc",
-                color: "#154846",
-                borderRadius: "16px",
-                padding: "16px 18px",
-                flex: "1 1 320px",
-                minWidth: "260px",
-                marginBottom: "22px",
-                lineHeight: 1.55,
-                fontSize: "16px",
-              }}
-            >
+        <section className="layout">
+          <div className="mainCard">
+            <div className="intro">
               Tell me what’s going on with your employee and I’ll help you think
               through what to say and what to do next.
             </div>
 
-            <label
-              htmlFor="situation"
-              style={{
-                display: "block",
-                fontWeight: 800,
-                marginBottom: "10px",
-                color: "#184846",
-                fontSize: "24px",
-              }}
-            >
+            <label htmlFor="situation" className="label">
               What’s happening?
             </label>
 
-            <p
-              style={{
-                margin: "0 0 14px 0",
-                color: "#55706d",
-                fontSize: "14px",
-                lineHeight: 1.5,
-              }}
-            >
+            <p className="helper">
               Best results: include what the employee is doing, how long it’s
               been happening, and how it’s affecting the work or team.
             </p>
@@ -351,230 +241,451 @@ export default function Home() {
               placeholder="Example: My employee keeps leaving the jobsite during his shift, and it’s creating a safety issue."
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              style={{
-                width: "100%",
-                minHeight: "180px",
-                padding: "16px",
-                fontSize: "16px",
-                lineHeight: "1.55",
-                borderRadius: "16px",
-                border: "1px solid #bdd8d3",
-                outline: "none",
-                resize: "vertical",
-                boxSizing: "border-box",
-                backgroundColor: "#fcfffe",
-              }}
+              className="textarea"
             />
 
-            <div
-              style={{
-                marginTop: "12px",
-                display: "flex",
-                gap: "10px",
-                flexWrap: "wrap",
-              }}
-            >
+            <div className="buttons">
               <button
                 onClick={handleGenerate}
                 disabled={loading || !input.trim()}
-                style={{
-                  padding: "14px 22px",
-                  background:
-                    loading || !input.trim()
-                      ? "#7aa9a4"
-                      : "linear-gradient(135deg, #0f766e 0%, #155e75 100%)",
-                  color: "#ffffff",
-                  border: "none",
-                  borderRadius: "10px",
-                  cursor: loading || !input.trim() ? "not-allowed" : "pointer",
-                  fontSize: "16px",
-                  fontWeight: 700,
-                  boxShadow: "0 10px 20px rgba(15,118,110,0.22)",
-                }}
+                className="primaryButton"
               >
                 {loading ? "Working..." : "Coach Me Through It"}
               </button>
 
-              <button
-                onClick={handleReset}
-                style={{
-                  padding: "14px 22px",
-                  backgroundColor: "#ffffff",
-                  color: "#134e4a",
-                  border: "1px solid #94a3b8",
-                  borderRadius: "10px",
-                  cursor: "pointer",
-                  fontSize: "16px",
-                  fontWeight: 700,
-                }}
-              >
+              <button onClick={handleReset} className="secondaryButton">
                 Ask Another Question
               </button>
             </div>
 
-            {output && (
-              <div
-                style={{
-                  marginTop: "26px",
-                  padding: "22px",
-                  background:
-                    "linear-gradient(135deg, #f8fbfb 0%, #f4f8f8 100%)",
-                  borderLeft: "6px solid #0f766e",
-                  borderRadius: "16px",
-                  whiteSpace: "pre-wrap",
-                  lineHeight: "1.7",
-                  fontSize: "15px",
-                  color: "#163434",
-                  boxShadow: "inset 0 0 0 1px #e0ecea",
-                }}
-              >
-                {output}
-              </div>
-            )}
+            {output && <div className="output">{output}</div>}
 
             {!output && (
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "13px",
-                  color: "#5f7774",
-                  lineHeight: 1.6,
-                }}
-              >
+              <p className="smallNote">
                 Not sure what to type? Describe the person, the behavior, how
                 long it has been happening, and how it affects the work.
               </p>
             )}
 
-            <p
-              style={{
-                marginTop: "22px",
-                fontSize: "13px",
-                color: "#5f7774",
-                lineHeight: 1.6,
-              }}
-            >
+            <p className="legalNote">
               For legal or HR-specific situations, always check your state laws,
               company policies, or qualified HR/legal guidance.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "18px",
-            }}
-          >
-            <div
-              style={{
-                backgroundColor: "#ffffff",
-                borderRadius: "22px",
-                padding: "22px",
-                boxShadow: "0 12px 30px rgba(18, 54, 54, 0.08)",
-                border: "1px solid #d7ebe8",
-              }}
-            >
-              <h2
-                style={{
-                  margin: "0 0 12px 0",
-                  fontSize: "22px",
-                  color: "#184846",
-                }}
-              >
-                Built for real manager moments
-              </h2>
-              <p
-                style={{
-                  margin: 0,
-                  color: "#58706d",
-                  lineHeight: 1.65,
-                  fontSize: "15px",
-                }}
-              >
+          <aside className="sideColumn">
+            <div className="sideCard">
+              <h2>Built for real manager moments</h2>
+              <p>
                 Use this when someone is late, pushing back, shutting down,
                 underperforming, creating tension, or making leadership harder
                 than it needs to be.
               </p>
             </div>
 
-            <div
-              style={{
-                background:
-                  "linear-gradient(180deg, #134e4a 0%, #123f3d 100%)",
-                borderRadius: "22px",
-                padding: "22px",
-                color: "#ffffff",
-                boxShadow: "0 14px 30px rgba(18, 54, 54, 0.18)",
-              }}
-            >
-              <h2
-                style={{
-                  margin: "0 0 12px 0",
-                  fontSize: "22px",
-                }}
-              >
-                What you’ll get
-              </h2>
-
-              <div style={{ display: "grid", gap: "12px" }}>
+            <div className="darkCard">
+              <h2>What you’ll get</h2>
+              <div className="benefits">
                 {[
                   "What to say",
                   "Why it matters",
                   "What to watch for",
                   "Clear next steps",
                 ].map((item) => (
-                  <div
-                    key={item}
-                    style={{
-                      backgroundColor: "rgba(255,255,255,0.08)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      borderRadius: "14px",
-                      padding: "12px 14px",
-                      fontWeight: 700,
-                      color: "#e7fbf7",
-                    }}
-                  >
+                  <div key={item} className="benefit">
                     {item}
                   </div>
                 ))}
               </div>
             </div>
 
-            <div
-              style={{
-                backgroundColor: "#fffaf0",
-                border: "1px solid #f4d9a8",
-                borderRadius: "22px",
-                padding: "22px",
-                boxShadow: "0 10px 24px rgba(0,0,0,0.04)",
-              }}
-            >
-              <h2
-                style={{
-                  margin: "0 0 12px 0",
-                  fontSize: "22px",
-                  color: "#7a4b00",
-                }}
-              >
-                Quick note
-              </h2>
-              <p
-                style={{
-                  margin: 0,
-                  color: "#7a5a1d",
-                  lineHeight: 1.65,
-                  fontSize: "15px",
-                }}
-              >
+            <div className="noteCard">
+              <h2>Quick note</h2>
+              <p>
                 This tool is for workplace issues. If your question is not about
                 an employee, team problem, leadership situation, or work-related
                 challenge, it’ll point you back to the right kind of prompt.
               </p>
             </div>
-          </div>
-        </div>
+          </aside>
+        </section>
       </div>
-    </div>
+
+      <style jsx>{`
+        .page {
+          min-height: 100vh;
+          background: linear-gradient(
+            180deg,
+            #0f4c4c 0%,
+            #165f5a 20%,
+            #f3f7f6 20%,
+            #f3f7f6 100%
+          );
+          padding: 32px 18px 50px;
+          font-family: Arial, sans-serif;
+          color: #163434;
+        }
+
+        .wrap {
+          max-width: 980px;
+          margin: 0 auto;
+        }
+
+        .hero {
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.02)
+          );
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 24px;
+          padding: 28px 24px;
+          color: #ffffff;
+          margin-bottom: 22px;
+          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .heroInner {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          flex-wrap: wrap;
+        }
+
+        .logoBox {
+          background-color: rgba(255, 255, 255, 0.12);
+          border-radius: 18px;
+          padding: 10px;
+          display: inline-flex;
+        }
+
+        .heroText {
+          flex: 1;
+          min-width: 260px;
+        }
+
+        .tag {
+          display: inline-block;
+          background-color: #d7fff4;
+          color: #0f4c4c;
+          font-size: 12px;
+          font-weight: 700;
+          padding: 6px 10px;
+          border-radius: 999px;
+          margin-bottom: 10px;
+          letter-spacing: 0.3px;
+        }
+
+        h1 {
+          margin: 0;
+          font-size: 36px;
+          line-height: 1.1;
+          font-weight: 800;
+        }
+
+        .heroText p {
+          margin: 12px 0 0 0;
+          font-size: 20px;
+          line-height: 1.35;
+          color: #d8f2ee;
+          font-weight: 600;
+        }
+
+        .layout {
+          display: grid;
+          grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+          gap: 22px;
+          align-items: start;
+        }
+
+        .mainCard,
+        .sideCard,
+        .darkCard,
+        .noteCard {
+          box-sizing: border-box;
+        }
+
+        .mainCard {
+          background-color: #ffffff;
+          border-radius: 24px;
+          padding: 28px;
+          box-shadow: 0 12px 30px rgba(18, 54, 54, 0.08);
+          border: 1px solid #d7ebe8;
+          min-width: 0;
+        }
+
+        .intro {
+          background: linear-gradient(135deg, #ecfffb 0%, #e8f7f3 100%);
+          border: 1px solid #b7e8dc;
+          color: #154846;
+          border-radius: 16px;
+          padding: 16px 18px;
+          margin-bottom: 22px;
+          line-height: 1.55;
+          font-size: 16px;
+        }
+
+        .label {
+          display: block;
+          font-weight: 800;
+          margin-bottom: 10px;
+          color: #184846;
+          font-size: 24px;
+        }
+
+        .helper {
+          margin: 0 0 14px 0;
+          color: #55706d;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        .textarea {
+          width: 100%;
+          min-height: 180px;
+          padding: 16px;
+          font-size: 16px;
+          line-height: 1.55;
+          border-radius: 16px;
+          border: 1px solid #bdd8d3;
+          outline: none;
+          resize: vertical;
+          box-sizing: border-box;
+          background-color: #fcfffe;
+          color: #163434;
+        }
+
+        .buttons {
+          margin-top: 12px;
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .primaryButton,
+        .secondaryButton {
+          padding: 14px 22px;
+          border-radius: 10px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 700;
+        }
+
+        .primaryButton {
+          background: linear-gradient(135deg, #0f766e 0%, #155e75 100%);
+          color: #ffffff;
+          border: none;
+          box-shadow: 0 10px 20px rgba(15, 118, 110, 0.22);
+        }
+
+        .primaryButton:disabled {
+          background: #7aa9a4;
+          cursor: not-allowed;
+        }
+
+        .secondaryButton {
+          background-color: #ffffff;
+          color: #134e4a;
+          border: 1px solid #94a3b8;
+        }
+
+        .output {
+          margin-top: 26px;
+          padding: 22px;
+          background: linear-gradient(135deg, #f8fbfb 0%, #f4f8f8 100%);
+          border-left: 6px solid #0f766e;
+          border-radius: 16px;
+          white-space: pre-wrap;
+          line-height: 1.7;
+          font-size: 15px;
+          color: #163434;
+          box-shadow: inset 0 0 0 1px #e0ecea;
+        }
+
+        .smallNote,
+        .legalNote {
+          font-size: 13px;
+          color: #5f7774;
+          line-height: 1.6;
+        }
+
+        .smallNote {
+          margin-top: 18px;
+        }
+
+        .legalNote {
+          margin-top: 22px;
+        }
+
+        .sideColumn {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          min-width: 0;
+        }
+
+        .sideCard {
+          background-color: #ffffff;
+          border-radius: 22px;
+          padding: 22px;
+          box-shadow: 0 12px 30px rgba(18, 54, 54, 0.08);
+          border: 1px solid #d7ebe8;
+        }
+
+        .sideCard h2,
+        .noteCard h2 {
+          margin: 0 0 12px 0;
+          font-size: 22px;
+          color: #184846;
+        }
+
+        .sideCard p {
+          margin: 0;
+          color: #58706d;
+          line-height: 1.65;
+          font-size: 15px;
+        }
+
+        .darkCard {
+          background: linear-gradient(180deg, #134e4a 0%, #123f3d 100%);
+          border-radius: 22px;
+          padding: 22px;
+          color: #ffffff;
+          box-shadow: 0 14px 30px rgba(18, 54, 54, 0.18);
+        }
+
+        .darkCard h2 {
+          margin: 0 0 12px 0;
+          font-size: 22px;
+        }
+
+        .benefits {
+          display: grid;
+          gap: 12px;
+        }
+
+        .benefit {
+          background-color: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 14px;
+          padding: 12px 14px;
+          font-weight: 700;
+          color: #e7fbf7;
+        }
+
+        .noteCard {
+          background-color: #fffaf0;
+          border: 1px solid #f4d9a8;
+          border-radius: 22px;
+          padding: 22px;
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .noteCard h2 {
+          color: #7a4b00;
+        }
+
+        .noteCard p {
+          margin: 0;
+          color: #7a5a1d;
+          line-height: 1.65;
+          font-size: 15px;
+        }
+
+        @media (max-width: 760px) {
+          .page {
+            padding: 14px 10px 36px;
+            background: linear-gradient(
+              180deg,
+              #0f4c4c 0%,
+              #165f5a 14%,
+              #f3f7f6 14%,
+              #f3f7f6 100%
+            );
+          }
+
+          .hero {
+            padding: 18px 16px;
+            border-radius: 18px;
+            margin-bottom: 14px;
+          }
+
+          .heroInner {
+            gap: 12px;
+            align-items: flex-start;
+          }
+
+          .logoBox {
+            padding: 8px;
+            border-radius: 14px;
+          }
+
+          .heroText {
+            min-width: 0;
+          }
+
+          h1 {
+            font-size: 28px;
+          }
+
+          .heroText p {
+            font-size: 16px;
+          }
+
+          .layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+          }
+
+          .mainCard,
+          .sideCard,
+          .darkCard,
+          .noteCard {
+            width: 100%;
+            border-radius: 18px;
+          }
+
+          .mainCard {
+            padding: 18px;
+          }
+
+          .intro {
+            font-size: 15px;
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 18px;
+          }
+
+          .label {
+            font-size: 22px;
+          }
+
+          .textarea {
+            min-height: 160px;
+            font-size: 16px;
+          }
+
+          .buttons {
+            flex-direction: column;
+          }
+
+          .primaryButton,
+          .secondaryButton {
+            width: 100%;
+          }
+
+          .sideColumn {
+            width: 100%;
+          }
+
+          .sideCard,
+          .darkCard,
+          .noteCard {
+            padding: 18px;
+          }
+        }
+      `}</style>
+    </main>
   );
 }
