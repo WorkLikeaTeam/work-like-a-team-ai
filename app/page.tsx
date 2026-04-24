@@ -59,7 +59,8 @@ export default function Home() {
   "my child",
   "parenting",
   "dog",
-  "cat"
+  "cat",
+  "pounds"
 ];
 
     const isOffTopic = offTopicKeywords.some((word) => trimmed.includes(word));
