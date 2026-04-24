@@ -8,19 +8,8 @@ export default function Home() {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const examples = [
-    "An employee is always late and it’s affecting the rest of the team.",
-    "Two team members aren’t getting along and it’s creating tension.",
-    "A strong employee has a bad attitude and it’s bringing the team down.",
-  ];
-
   const handleReset = () => {
     setInput("");
-    setOutput("");
-  };
-
-  const useExample = (text: string) => {
-    setInput(text);
     setOutput("");
   };
 
@@ -100,6 +89,7 @@ export default function Home() {
       "conflict",
       "feedback",
       "electricity",
+      "electric",
       "electrician",
       "site",
       "jobsite",
@@ -287,7 +277,7 @@ export default function Home() {
 
             <textarea
               id="situation"
-              placeholder="Example: My employee is always late, and the rest of the team is starting to notice."
+              placeholder="Example: My employee keeps leaving the jobsite during his shift, and it’s creating a safety issue."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               style={{
@@ -372,41 +362,17 @@ export default function Home() {
             )}
 
             {!output && (
-              <div style={{ marginTop: "22px" }}>
-                <p
-                  style={{
-                    margin: "0 0 12px 0",
-                    fontWeight: 800,
-                    color: "#184846",
-                    fontSize: "20px",
-                  }}
-                >
-                  Try one of these:
-                </p>
-
-                <div style={{ display: "grid", gap: "12px" }}>
-                  {examples.map((example, index) => (
-                    <button
-                      key={index}
-                      onClick={() => useExample(example)}
-                      style={{
-                        textAlign: "left",
-                        padding: "14px 16px",
-                        background:
-                          "linear-gradient(135deg, #f2fffb 0%, #ebf9f6 100%)",
-                        border: "1px solid #9be7d3",
-                        borderRadius: "14px",
-                        cursor: "pointer",
-                        color: "#174846",
-                        fontSize: "15px",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {example}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <p
+                style={{
+                  marginTop: "18px",
+                  fontSize: "13px",
+                  color: "#5f7774",
+                  lineHeight: 1.6,
+                }}
+              >
+                Not sure what to type? Describe the person, the behavior, how
+                long it has been happening, and how it affects the work.
+              </p>
             )}
 
             <p
