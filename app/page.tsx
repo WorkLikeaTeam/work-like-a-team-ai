@@ -75,24 +75,35 @@ export default function Home() {
     }
 
     const workWords = [
-  "employee",
-  "team",
-  "manager",
-  "coworker",
-  "boss",
-  "work",
-  "job",
-  "staff",
-  "guy",
-  "person",
-  "worker",
-  "crew",
-  "people",
-  "break",
-  "leaving",
-  "late",
-  "schedule",
-];
+      "employee",
+      "team",
+      "manager",
+      "coworker",
+      "boss",
+      "work",
+      "job",
+      "staff",
+      "guy",
+      "person",
+      "worker",
+      "crew",
+      "people",
+      "break",
+      "breaks",
+      "leaving",
+      "leave",
+      "late",
+      "schedule",
+      "shift",
+      "attendance",
+      "performance",
+      "conflict",
+      "feedback",
+      "electricity",
+      "electrician",
+      "site",
+      "jobsite",
+    ];
 
     const isWorkRelated = workWords.some((word) => trimmed.includes(word));
 
@@ -340,42 +351,6 @@ export default function Home() {
               </button>
             </div>
 
-            <div style={{ marginTop: "22px" }}>
-              <p
-                style={{
-                  margin: "0 0 12px 0",
-                  fontWeight: 800,
-                  color: "#184846",
-                  fontSize: "20px",
-                }}
-              >
-                Try one of these:
-              </p>
-
-              <div style={{ display: "grid", gap: "12px" }}>
-                {examples.map((example, index) => (
-                  <button
-                    key={index}
-                    onClick={() => useExample(example)}
-                    style={{
-                      textAlign: "left",
-                      padding: "14px 16px",
-                      background:
-                        "linear-gradient(135deg, #f2fffb 0%, #ebf9f6 100%)",
-                      border: "1px solid #9be7d3",
-                      borderRadius: "14px",
-                      cursor: "pointer",
-                      color: "#174846",
-                      fontSize: "15px",
-                      fontWeight: 600,
-                    }}
-                  >
-                    {example}
-                  </button>
-                ))}
-              </div>
-            </div>
-
             {output && (
               <div
                 style={{
@@ -393,6 +368,44 @@ export default function Home() {
                 }}
               >
                 {output}
+              </div>
+            )}
+
+            {!output && (
+              <div style={{ marginTop: "22px" }}>
+                <p
+                  style={{
+                    margin: "0 0 12px 0",
+                    fontWeight: 800,
+                    color: "#184846",
+                    fontSize: "20px",
+                  }}
+                >
+                  Try one of these:
+                </p>
+
+                <div style={{ display: "grid", gap: "12px" }}>
+                  {examples.map((example, index) => (
+                    <button
+                      key={index}
+                      onClick={() => useExample(example)}
+                      style={{
+                        textAlign: "left",
+                        padding: "14px 16px",
+                        background:
+                          "linear-gradient(135deg, #f2fffb 0%, #ebf9f6 100%)",
+                        border: "1px solid #9be7d3",
+                        borderRadius: "14px",
+                        cursor: "pointer",
+                        color: "#174846",
+                        fontSize: "15px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {example}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
 
