@@ -62,6 +62,10 @@ export default function Home() {
       "parenting",
       "dog",
       "cat",
+      "my boss",
+      "boss's",
+      "boss is",
+      "deal with my boss",
     ];
 
     const isOffTopic = offTopicKeywords.some((word) =>
