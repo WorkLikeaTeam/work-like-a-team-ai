@@ -220,6 +220,33 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="mobileIntro">
+          <div className="sideCard">
+            <h2>Built for real manager moments</h2>
+            <p>
+              Use this when someone is late, pushing back, shutting down,
+              underperforming, creating tension, or making leadership harder
+              than it needs to be.
+            </p>
+          </div>
+
+          <div className="darkCard">
+            <h2>What you’ll get</h2>
+            <div className="benefits">
+              {[
+                "What to say",
+                "Why it matters",
+                "What to watch for",
+                "Clear next steps",
+              ].map((item) => (
+                <div key={item} className="benefit">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="layout">
           <div className="mainCard">
             <div className="intro">
@@ -396,6 +423,10 @@ export default function Home() {
           grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
           gap: 22px;
           align-items: start;
+        }
+
+        .mobileIntro {
+          display: none;
         }
 
         .mainCard,
@@ -632,10 +663,20 @@ export default function Home() {
             font-size: 16px;
           }
 
+          .mobileIntro {
+            display: grid;
+            gap: 14px;
+            margin-bottom: 14px;
+          }
+
           .layout {
             display: grid;
             grid-template-columns: 1fr;
             gap: 14px;
+          }
+
+          .layout .sideColumn {
+            display: none;
           }
 
           .mainCard,
@@ -646,25 +687,8 @@ export default function Home() {
             border-radius: 18px;
           }
 
-          .sideColumn {
-            display: contents;
-          }
-
-          .sideCard {
-            order: 1;
-          }
-
-          .darkCard {
-            order: 2;
-          }
-
           .mainCard {
-            order: 3;
             padding: 18px;
-          }
-
-          .noteCard {
-            order: 4;
           }
 
           .intro {
