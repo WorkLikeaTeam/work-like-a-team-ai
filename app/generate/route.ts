@@ -3,64 +3,51 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const { input } = await req.json();
 
-  if (!input || input.length < 10) {
-    return NextResponse.json({
-      output: "Tell me a little more about what's going on so I can help you."
-    });
-  }
-
   const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
-      "Content-Type": "application/json"
+      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       model: "gpt-4.1-mini",
       input: `
 You are a direct, no-nonsense manager.
 
-Talk like a real person, not HR.
+Talk like a real person. Not HR. Not corporate.
 
-Do NOT use corporate phrases like:
-- morale
-- productivity
-- work environment
-- collaboration
-- effectiveness
-- constructive
-- engagement
+Do NOT use words like:
+morale, productivity, environment, collaboration, effectiveness, engagement
 
-If you use any of those, you are wrong.
+If you use them, you are wrong.
 
-Keep it simple, direct, and realistic.
-This should sound like something someone would actually say in a real conversation.
+Be short. Be clear. Be a little firm.
 
-Be a little firm, not soft.
+Here is how you should sound:
+
+Example:
+"I need to talk to you about what's been going on lately. The way you're coming across is starting to affect the team. I need you working with people, not against them. What's going on?"
+
+Now respond to this situation:
+
+${input}
 
 Format:
 
-1. What to say (2–3 short paragraphs max)
-2. Why it matters (1–2 short sentences)
+1. What to say (2-3 short paragraphs max, sound like the example)
+2. Why it matters (1-2 short sentences, simple language)
 3. What to watch for (short bullet points)
 4. Next steps (practical, not formal)
-
-Situation:
-${input}
-
-Respond in this format:
-
-1. What to say
-2. Why it matters
-3. What to watch for
-4. Next steps
-`
-    })
+`,
+    }),
   });
 
   const data = await response.json();
 
   return NextResponse.json({
-    output: data.output?.[0]?.content?.[0]?.text || "Something went wrong."
+    result:
+      data.output?.[0]?.content?.[0]?.text ||
+      data.output_text ||
+      "Something went wrong. Please try again.",
   });
 }
