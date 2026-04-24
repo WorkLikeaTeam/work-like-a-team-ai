@@ -625,20 +625,20 @@ export default function Home() {
 
         @media (max-width: 760px) {
           .page {
-            padding: 12px 10px 32px;
+            padding: 10px 8px 28px;
             background: linear-gradient(
               180deg,
               #0f4c4c 0%,
-              #165f5a 12%,
-              #f3f7f6 12%,
+              #165f5a 10%,
+              #f3f7f6 10%,
               #f3f7f6 100%
             );
           }
 
           .hero {
-            padding: 14px;
-            border-radius: 16px;
-            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 14px;
+            margin-bottom: 8px;
           }
 
           .heroInner {
@@ -667,24 +667,24 @@ export default function Home() {
           }
 
           h1 {
-            font-size: 25px;
+            font-size: 24px;
           }
 
           .heroText p {
-            font-size: 14px;
-            margin-top: 6px;
+            font-size: 13px;
+            margin-top: 4px;
           }
 
           .mobileIntro {
             display: grid;
-            gap: 8px;
-            margin-bottom: 10px;
+            gap: 6px;
+            margin-bottom: 8px;
           }
 
           .layout {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 10px;
           }
 
           .layout .sideColumn {
@@ -696,65 +696,73 @@ export default function Home() {
           .darkCard,
           .noteCard {
             width: 100%;
-            border-radius: 16px;
-          }
-
-          .sideCard {
-            padding: 14px;
-          }
-
-          .sideCard h2 {
-            font-size: 20px;
-            margin-bottom: 8px;
-          }
-
-          .sideCard p {
-            font-size: 14px;
-            line-height: 1.45;
+            border-radius: 14px;
           }
 
           .mainCard {
-            padding: 16px;
+            padding: 14px;
+          }
+
+          .sideCard {
+            padding: 12px;
+          }
+
+          .sideCard h2 {
+            font-size: 18px;
+            margin-bottom: 6px;
+          }
+
+          .sideCard p {
+            font-size: 13px;
+            line-height: 1.4;
           }
 
           .mobileValueCard {
-            padding: 10px 12px;
-            border-radius: 16px;
+            padding: 10px;
+            border-radius: 14px;
           }
 
           .mobileValueCard h2 {
-            font-size: 17px;
-            margin-bottom: 8px;
+            font-size: 16px;
+            margin-bottom: 6px;
           }
 
           .mobileBenefits {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-wrap: wrap;
             gap: 6px;
           }
 
           .mobileBenefit {
-            padding: 7px 8px;
-            font-size: 13px;
-            line-height: 1.2;
-            border-radius: 9px;
-            text-align: center;
+            padding: 6px 8px;
+            font-size: 12px;
+            border-radius: 999px;
+            font-weight: 600;
+            line-height: 1;
+            white-space: nowrap;
+            background-color: rgba(255, 255, 255, 0.12);
           }
 
           .intro {
-            font-size: 14px;
-            padding: 12px;
-            border-radius: 12px;
-            margin-bottom: 16px;
+            font-size: 13px;
+            padding: 10px;
+            margin-bottom: 12px;
             line-height: 1.45;
+            border-radius: 12px;
           }
 
           .label {
-            font-size: 21px;
+            font-size: 20px;
+          }
+
+          .helper {
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 10px;
           }
 
           .textarea {
-            min-height: 155px;
+            min-height: 140px;
             font-size: 16px;
           }
 
