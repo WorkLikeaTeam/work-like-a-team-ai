@@ -76,49 +76,25 @@ const isOffTopic = offTopicKeywords.some((word) =>
     }
 
     const workWords = [
-      "employee",
-      "team",
-      "manager",
-      "coworker",
-      "boss",
-      "work",
-      "job",
-      "staff",
-      "guy",
-      "person",
-      "worker",
-      "crew",
-      "people",
-      "break",
-      "breaks",
-      "leaving",
-      "leave",
-      "late",
-      "schedule",
-      "shift",
-      "attendance",
-      "performance",
-      "conflict",
-      "feedback",
-      "electricity",
-      "electric",
-      "electrician",
-      "site",
-      "jobsite",
-      "girl",
-      "argue",
-      "argues",
-      "arguing",
-      "new hire",
-      "hire",
-      "struggling",
-      "struggle",
-      "training",
-      "onboarding",
-    ];
+  "employee",
+  "employees",
+  "team",
+  "team member",
+  "coworker",
+  "co worker",
+  "staff",
+  "direct report",
+  "my employee",
+  "my team",
+  "someone on my team",
+  "person on my team",
+  "new hire",
+  "hire"
+];
 
-  const isWorkRelated = workWords.some((word) =>
-  normalized.includes(word.toLowerCase())
+
+const isWorkRelated = workWords.some((word) =>
+  normalized.includes(word)
 );
 
 if (!isWorkRelated) {
