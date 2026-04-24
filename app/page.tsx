@@ -285,16 +285,19 @@ export default function Home() {
 
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(0, 1.3fr) minmax(280px, 0.9fr)",
-            gap: "22px",
-          }}
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "22px",
+  alignItems: "flex-start",
+}}
         >
           <div
             style={{
               backgroundColor: "#ffffff",
               borderRadius: "24px",
               padding: "28px",
+              flex: "1 1 600px",
+              minWidth: "300px",
               boxShadow: "0 12px 30px rgba(18, 54, 54, 0.08)",
               border: "1px solid #d7ebe8",
             }}
@@ -307,6 +310,8 @@ export default function Home() {
                 color: "#154846",
                 borderRadius: "16px",
                 padding: "16px 18px",
+                flex: "1 1 320px",
+                minWidth: "260px",
                 marginBottom: "22px",
                 lineHeight: 1.55,
                 fontSize: "16px",
