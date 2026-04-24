@@ -117,9 +117,11 @@ const isOffTopic = offTopicKeywords.some((word) =>
       "onboarding",
     ];
 
-    const isWorkRelated = workWords.some((word) => trimmed.includes(word));
+  const isWorkRelated = workWords.some((word) =>
+  normalized.includes(word.toLowerCase())
+);
 
-if (!isWorkRelated && trimmed.length < 45) {
+if (!isWorkRelated) {
   setOutput(
     "I’m built for workplace situations like employee issues, team challenges, and leadership problems.\n\nTell me what’s happening at work and I’ll coach you through it."
   );
