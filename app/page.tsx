@@ -646,8 +646,25 @@ export default function Home() {
             border-radius: 18px;
           }
 
+          .sideColumn {
+            display: contents;
+          }
+
+          .sideCard {
+            order: 1;
+          }
+
+          .darkCard {
+            order: 2;
+          }
+
           .mainCard {
+            order: 3;
             padding: 18px;
+          }
+
+          .noteCard {
+            order: 4;
           }
 
           .intro {
@@ -672,10 +689,6 @@ export default function Home() {
 
           .primaryButton,
           .secondaryButton {
-            width: 100%;
-          }
-
-          .sideColumn {
             width: 100%;
           }
 
