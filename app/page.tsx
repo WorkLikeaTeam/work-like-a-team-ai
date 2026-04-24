@@ -14,9 +14,10 @@ export default function Home() {
   };
 
   const handleGenerate = async () => {
-    const trimmed = input.trim().toLowerCase();
+    const trimmed = input.trim();
+    const normalized = trimmed.toLowerCase();
 
-    if (!trimmed) return;
+    if (!normalized) return;
 
     const vagueInputs = [
       "help",
@@ -29,7 +30,7 @@ export default function Home() {
       "manager help",
     ];
 
-    if (trimmed.length < 18 || vagueInputs.includes(trimmed)) {
+    if (normalized.length < 18 || vagueInputs.includes(normalized)) {
       setOutput(
         "Give me a little more to work with so I can actually help.\n\nTry including:\n- what the employee is doing\n- how long it’s been happening\n- how it’s affecting the team or work\n- what you need help saying or deciding"
       );
@@ -37,72 +38,129 @@ export default function Home() {
     }
 
     const offTopicKeywords = [
-  "lose weight",
-  "weight loss",
-  "diet",
-  "calories",
-  "recipe",
-  "cooking",
-  "dinner",
-  "lunch",
-  "workout",
-  "gym",
-  "exercise",
-  "dating",
-  "boyfriend",
-  "girlfriend",
-  "vacation",
-  "travel",
-  "birthday",
-  "party",
-  "my kid",
-  "my child",
-  "parenting",
-  "dog",
-  "cat",
-  "pounds"
-];
+      "lose weight",
+      "weight loss",
+      "pounds",
+      "diet",
+      "calories",
+      "recipe",
+      "cooking",
+      "dinner",
+      "lunch",
+      "workout",
+      "gym",
+      "exercise",
+      "dating",
+      "boyfriend",
+      "girlfriend",
+      "vacation",
+      "travel",
+      "birthday",
+      "party",
+      "my kid",
+      "my child",
+      "parenting",
+      "dog",
+      "cat",
+    ];
 
-    const normalized = trimmed.toLowerCase();
-const isOffTopic = offTopicKeywords.some((word) =>
-  normalized.includes(word.toLowerCase())
-);
+    const isOffTopic = offTopicKeywords.some((word) =>
+      normalized.includes(word)
+    );
 
     if (isOffTopic) {
       setOutput(
-        "This tool is built for real workplace situations like employee issues, team conflict, leadership challenges, and performance concerns.\n\nTell me what’s going on at work and I’ll help you think it through."
+        "This tool is for real workplace situations like employee issues, team problems, leadership challenges, and manager decisions.\n\nTell me what’s happening with your employee or team and I’ll help you think it through."
       );
       return;
     }
 
-    const workWords = [
-  "employee",
-  "employees",
-  "team",
-  "team member",
-  "coworker",
-  "co worker",
-  "staff",
-  "direct report",
-  "my employee",
-  "my team",
-  "someone on my team",
-  "person on my team",
-  "new hire",
-  "hire"
-];
+    const personWords = [
+      "employee",
+      "employees",
+      "team",
+      "team member",
+      "staff",
+      "coworker",
+      "co-worker",
+      "co worker",
+      "direct report",
+      "new hire",
+      "hire",
+      "crew",
+      "worker",
+      "supervisor",
+      "manager",
+      "boss",
+      "someone on my team",
+      "person on my team",
+      "my employee",
+      "my team",
+      "my staff",
+      "my crew",
+      "this guy",
+      "this girl",
+      "a guy",
+      "a girl",
+    ];
 
+    const behaviorWords = [
+      "late",
+      "leaving",
+      "leave",
+      "break",
+      "breaks",
+      "argue",
+      "argues",
+      "arguing",
+      "attitude",
+      "struggling",
+      "struggle",
+      "falling behind",
+      "not listening",
+      "pushes back",
+      "pushing back",
+      "underperforming",
+      "performance",
+      "conflict",
+      "feedback",
+      "training",
+      "onboarding",
+      "missed deadline",
+      "missing deadlines",
+      "shift",
+      "schedule",
+      "jobsite",
+      "site",
+      "electric",
+      "electricity",
+      "safety",
+      "customer",
+      "customers",
+      "stressed",
+      "shutting down",
+    ];
 
-const isWorkRelated = workWords.some((word) =>
-  normalized.includes(word)
-);
+    const hasPerson = personWords.some((word) => normalized.includes(word));
+    const hasBehavior = behaviorWords.some((word) => normalized.includes(word));
 
-if (!isWorkRelated) {
-  setOutput(
-    "I’m built for workplace situations like employee issues, team challenges, and leadership problems.\n\nTell me what’s happening at work and I’ll coach you through it."
-  );
-  return;
-}
+    const managerPhrase =
+      normalized.includes("i have a") ||
+      normalized.includes("i have an") ||
+      normalized.includes("i've got a") ||
+      normalized.includes("ive got a") ||
+      normalized.includes("i got a") ||
+      normalized.includes("one of my") ||
+      normalized.includes("someone on");
+
+    const isManagerSituation = hasPerson || (managerPhrase && hasBehavior);
+
+    if (!isManagerSituation) {
+      setOutput(
+        "I’m built for workplace situations where you’re managing an employee, team member, coworker, new hire, or crew issue.\n\nTell me what’s happening with the person or team, and I’ll coach you through it."
+      );
+      return;
+    }
 
     setLoading(true);
     setOutput("");
@@ -113,7 +171,7 @@ if (!isWorkRelated) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ input }),
+        body: JSON.stringify({ input: trimmed }),
       });
 
       const data = await res.json();
@@ -220,7 +278,7 @@ if (!isWorkRelated) {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1.3fr 0.9fr",
+            gridTemplateColumns: "minmax(0, 1.3fr) minmax(280px, 0.9fr)",
             gap: "22px",
           }}
         >
