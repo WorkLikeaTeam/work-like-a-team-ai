@@ -102,6 +102,10 @@ export default function Home() {
       "this girl",
       "a guy",
       "a girl",
+      "i have a guy",
+      "i have a girl",
+      "i have an employee",
+      "i have someone",
     ];
 
     const behaviorWords = [
