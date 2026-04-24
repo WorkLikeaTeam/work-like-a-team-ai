@@ -107,12 +107,12 @@ export default function Home() {
 
     const isWorkRelated = workWords.some((word) => trimmed.includes(word));
 
-    if (!isWorkRelated) {
-      setOutput(
-        "I’m built for workplace situations like employee issues, team challenges, and leadership problems.\n\nTell me what’s happening at work and I’ll coach you through it."
-      );
-      return;
-    }
+if (!isWorkRelated && trimmed.length < 45) {
+  setOutput(
+    "I’m built for workplace situations like employee issues, team challenges, and leadership problems.\n\nTell me what’s happening at work and I’ll coach you through it."
+  );
+  return;
+}
 
     setLoading(true);
     setOutput("");
