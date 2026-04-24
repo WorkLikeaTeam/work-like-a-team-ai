@@ -625,54 +625,66 @@ export default function Home() {
 
         @media (max-width: 760px) {
           .page {
-            padding: 14px 10px 36px;
+            padding: 12px 10px 32px;
             background: linear-gradient(
               180deg,
               #0f4c4c 0%,
-              #165f5a 14%,
-              #f3f7f6 14%,
+              #165f5a 12%,
+              #f3f7f6 12%,
               #f3f7f6 100%
             );
           }
 
           .hero {
-            padding: 18px 16px;
-            border-radius: 18px;
-            margin-bottom: 14px;
+            padding: 14px;
+            border-radius: 16px;
+            margin-bottom: 10px;
           }
 
           .heroInner {
-            gap: 12px;
-            align-items: flex-start;
+            gap: 10px;
+            align-items: center;
           }
 
           .logoBox {
-            padding: 8px;
-            border-radius: 14px;
+            padding: 6px;
+            border-radius: 12px;
+          }
+
+          .logoBox img {
+            width: 64px !important;
+            height: 64px !important;
           }
 
           .heroText {
             min-width: 0;
           }
 
+          .tag {
+            font-size: 11px;
+            padding: 5px 9px;
+            margin-bottom: 6px;
+          }
+
           h1 {
-            font-size: 28px;
+            font-size: 25px;
           }
 
           .heroText p {
-            font-size: 16px;
+            font-size: 14px;
+            margin-top: 6px;
           }
 
           .mobileIntro {
             display: grid;
-            gap: 12px;
-            margin-bottom: 14px;
+            gap: 8px;
+            margin-bottom: 10px;
           }
 
           .layout {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 14px;
+            gap: 12px;
           }
 
           .layout .sideColumn {
@@ -684,45 +696,65 @@ export default function Home() {
           .darkCard,
           .noteCard {
             width: 100%;
-            border-radius: 18px;
+            border-radius: 16px;
           }
 
-          .mainCard {
-            padding: 18px;
-          }
-
-          .mobileValueCard {
+          .sideCard {
             padding: 14px;
           }
 
+          .sideCard h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+          }
+
+          .sideCard p {
+            font-size: 14px;
+            line-height: 1.45;
+          }
+
+          .mainCard {
+            padding: 16px;
+          }
+
+          .mobileValueCard {
+            padding: 10px 12px;
+            border-radius: 16px;
+          }
+
           .mobileValueCard h2 {
-            font-size: 18px;
+            font-size: 17px;
             margin-bottom: 8px;
           }
 
           .mobileBenefits {
-            gap: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
           }
 
           .mobileBenefit {
-            padding: 8px 10px;
-            font-size: 14px;
-            border-radius: 10px;
+            padding: 7px 8px;
+            font-size: 13px;
+            line-height: 1.2;
+            border-radius: 9px;
+            text-align: center;
           }
 
           .intro {
-            font-size: 15px;
-            padding: 14px;
-            border-radius: 14px;
-            margin-bottom: 18px;
+            font-size: 14px;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            line-height: 1.45;
           }
 
           .label {
-            font-size: 22px;
+            font-size: 21px;
           }
 
           .textarea {
-            min-height: 160px;
+            min-height: 155px;
             font-size: 16px;
           }
 
@@ -735,13 +767,12 @@ export default function Home() {
             width: 100%;
           }
 
-          .sideCard,
           .noteCard {
-            padding: 18px;
+            padding: 16px;
           }
 
           .darkCard {
-            padding: 16px;
+            padding: 14px;
           }
         }
       `}</style>
