@@ -230,16 +230,16 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="darkCard">
+          <div className="darkCard mobileValueCard">
             <h2>What you’ll get</h2>
-            <div className="benefits">
+            <div className="benefits mobileBenefits">
               {[
                 "What to say",
                 "Why it matters",
                 "What to watch for",
                 "Clear next steps",
               ].map((item) => (
-                <div key={item} className="benefit">
+                <div key={item} className="benefit mobileBenefit">
                   {item}
                 </div>
               ))}
@@ -665,7 +665,7 @@ export default function Home() {
 
           .mobileIntro {
             display: grid;
-            gap: 14px;
+            gap: 12px;
             margin-bottom: 14px;
           }
 
@@ -689,6 +689,25 @@ export default function Home() {
 
           .mainCard {
             padding: 18px;
+          }
+
+          .mobileValueCard {
+            padding: 14px;
+          }
+
+          .mobileValueCard h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+          }
+
+          .mobileBenefits {
+            gap: 8px;
+          }
+
+          .mobileBenefit {
+            padding: 8px 10px;
+            font-size: 14px;
+            border-radius: 10px;
           }
 
           .intro {
@@ -717,9 +736,12 @@ export default function Home() {
           }
 
           .sideCard,
-          .darkCard,
           .noteCard {
             padding: 18px;
+          }
+
+          .darkCard {
+            padding: 16px;
           }
         }
       `}</style>
