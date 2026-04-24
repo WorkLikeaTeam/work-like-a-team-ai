@@ -63,7 +63,10 @@ export default function Home() {
   "pounds"
 ];
 
-    const isOffTopic = offTopicKeywords.some((word) => trimmed.includes(word));
+    const normalized = trimmed.toLowerCase();
+const isOffTopic = offTopicKeywords.some((word) =>
+  normalized.includes(word.toLowerCase())
+);
 
     if (isOffTopic) {
       setOutput(
