@@ -37,22 +37,30 @@ export default function Home() {
     }
 
     const offTopicKeywords = [
-      "boyfriend",
-      "girlfriend",
-      "dating",
-      "weight loss",
-      "lose weight",
-      "dinner",
-      "recipe",
-      "poem",
-      "birthday",
-      "my kid",
-      "my child",
-      "parenting",
-      "dog",
-      "cat",
-      "vacation",
-    ];
+  "lose weight",
+  "weight loss",
+  "diet",
+  "calories",
+  "recipe",
+  "cooking",
+  "dinner",
+  "lunch",
+  "workout",
+  "gym",
+  "exercise",
+  "dating",
+  "boyfriend",
+  "girlfriend",
+  "vacation",
+  "travel",
+  "birthday",
+  "party",
+  "my kid",
+  "my child",
+  "parenting",
+  "dog",
+  "cat"
+];
 
     const isOffTopic = offTopicKeywords.some((word) => trimmed.includes(word));
 
