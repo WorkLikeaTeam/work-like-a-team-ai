@@ -93,6 +93,16 @@ export default function Home() {
       "electrician",
       "site",
       "jobsite",
+      "girl",
+      "argue",
+      "argues",
+      "arguing",
+      "new hire",
+      "hire",
+      "struggling",
+      "struggle",
+      "training",
+      "onboarding",
     ];
 
     const isWorkRelated = workWords.some((word) => trimmed.includes(word));
