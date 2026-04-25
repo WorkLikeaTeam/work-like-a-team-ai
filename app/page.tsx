@@ -153,6 +153,16 @@ export default function Home() {
       "calling out",
       "mistakes",
       "undermining",
+      "mistake",
+      "mistakes",
+      "messed up",
+      "messing up",
+      "huge mistake",
+      "not the first",
+      "not the first time",
+      "accountability",
+      "ownership",
+      "consequences",
     ];
 
     const hasPerson = personWords.some((word) => normalized.includes(word));
@@ -167,7 +177,7 @@ export default function Home() {
       normalized.includes("one of my") ||
       normalized.includes("someone on");
 
-    const isManagerSituation = hasPerson || (managerPhrase && hasBehavior);
+    const isManagerSituation = hasPerson || hasBehavior || managerPhrase;
 
     if (!isManagerSituation) {
       setOutput(
