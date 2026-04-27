@@ -1,6 +1,15 @@
+import { kv } from "@vercel/kv";
 export async function POST(req: Request) {
   try {
     const { input } = await req.json();
+    // Simple global usage limit
+const count = await kv.incr("usage_count");
+
+if (count > 100) {
+  return Response.json({
+    result: "This test is currently full. Thank you for your interest!",
+  });
+}
 
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
@@ -82,6 +91,16 @@ ${input}
     });
 
     const data = await response.json();
+    const userId = req.headers.get("x-forwarded-for") || "unknown";
+
+await kv.lpush(
+  "usage_logs",
+  JSON.stringify({
+    input,
+    time: new Date().toISOString(),
+    userId,
+  })
+);
 
     return Response.json({
       result: data.output?.[0]?.content?.[0]?.text || "No response generated.",
