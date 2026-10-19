@@ -1,5 +1,8 @@
 import { Redis } from "@upstash/redis";
-const kv = Redis.fromEnv();
+const kv = new Redis({
+  url: process.env.NEWKV_KV_REST_API_URL!,
+  token: process.env.NEWKV_KV_REST_API_TOKEN!,
+});
 export async function POST(req: Request) {
   try {
     const { input } = await req.json();
