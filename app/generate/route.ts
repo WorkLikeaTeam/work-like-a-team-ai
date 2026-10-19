@@ -107,6 +107,7 @@ await kv.lpush(
       result: data.output?.[0]?.content?.[0]?.text || "No response generated.",
     });
   } catch (error) {
+    console.error("Generate error:", error);
     return Response.json({
       result: "Something went wrong while generating guidance. Please try again.",
     });
